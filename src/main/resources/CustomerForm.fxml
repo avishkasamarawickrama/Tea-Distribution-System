@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="725.0" prefWidth="725.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.customerFormController">
+    <children>
+        <TextField fx:id="txtCustomerId" layoutX="62.0" layoutY="200.0" onAction="#txtCustomerOnAction" prefHeight="44.0" prefWidth="271.0" promptText="id">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtContactNo" layoutX="64.0" layoutY="307.0" prefHeight="44.0" prefWidth="271.0" promptText="07*********">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtName" layoutX="404.0" layoutY="198.0" prefHeight="44.0" prefWidth="271.0" promptText="name">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtEmail" layoutX="404.0" layoutY="312.0" prefHeight="44.0" prefWidth="271.0" promptText="***@gmail.com">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TableView fx:id="tblCustomer" layoutX="14.0" layoutY="487.0" prefHeight="225.0" prefWidth="700.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="137.60006308555603" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="149.59991455078125" text="NAME" />
+                <TableColumn fx:id="colContact" prefWidth="196.79995727539062" text="CONTACT NUMBER" />
+                <TableColumn fx:id="colEmail" prefWidth="212.79998779296875" text="EMAIL" />
+            </columns>
+        </TableView>
+        <Text fill="WHITE" layoutX="62.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CUSTOMER ID">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="65.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTACT NO :-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="408.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="404.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMAIL">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="167.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CUSTOMER MANAGEMENT">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Text>
+      <JFXButton layoutX="353.0" layoutY="412.0" onAction="#btnSaveOnAction" style="-fx-background-color: white;" text="SAVE" textFill="#1f4369">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="464.0" layoutY="413.0" onAction="#btnUpdateOnAction" style="-fx-background-color: white;" text="UPDATE" textFill="#ea7d3a">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="602.0" layoutY="413.0" onAction="#btnDeleteOnAction" style="-fx-background-color: white;" text="DELETE" textFill="#e12c26">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+    </children>
+</AnchorPane>

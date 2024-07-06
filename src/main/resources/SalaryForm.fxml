@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="725.0" prefWidth="725.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.salaryFormController">
+    <children>
+        <TextField fx:id="txtSalaryno" layoutX="62.0" layoutY="200.0" onAction="#txtSalaryOnAction" prefHeight="44.0" prefWidth="271.0" promptText="no">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtDate" layoutX="64.0" layoutY="307.0" prefHeight="44.0" prefWidth="271.0" promptText="**/**/20**">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtEmployeeId" layoutX="404.0" layoutY="198.0" prefHeight="44.0" prefWidth="271.0" promptText="id">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtAmount" layoutX="404.0" layoutY="312.0" prefHeight="44.0" prefWidth="271.0" promptText="0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TableView fx:id="tblSalary" layoutX="14.0" layoutY="487.0" prefHeight="225.0" prefWidth="700.0">
+            <columns>
+                <TableColumn fx:id="colNo" prefWidth="137.60006308555603" text="NO" />
+                <TableColumn fx:id="colEmployeeId" prefWidth="149.59991455078125" text="EMPLOYEE ID" />
+                <TableColumn fx:id="colPaymentDate" prefWidth="196.79995727539062" text="PAYMENT DATE" />
+                <TableColumn fx:id="colAmount" prefWidth="212.79998779296875" text="AMOUNT" />
+            </columns>
+        </TableView>
+        <Text fill="WHITE" layoutX="62.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SALARY NO:-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="65.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAYMENT DATE:-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="408.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLOYEE ID:-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="404.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMOUNT:-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="167.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SALARY MANAGEMENT">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Text>
+      <JFXButton layoutX="353.0" layoutY="412.0" onAction="#btnSaveOnAction" style="-fx-background-color: white;" text="SAVE" textFill="#1f4369">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="464.0" layoutY="413.0" onAction="#btnUpdateOnAction" style="-fx-background-color: white;" text="UPDATE" textFill="#ea7d3a">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="602.0" layoutY="413.0" onAction="#btnDeleteOnAction" style="-fx-background-color: white;" text="DELETE" textFill="#e12c26">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+    </children>
+</AnchorPane>

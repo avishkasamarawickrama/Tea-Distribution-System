@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rooter" prefHeight="540.0" prefWidth="730.0" style="-fx-background-color: black;" styleClass="backdrop" stylesheets="@../CSS/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.AddNewUserFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaeaea" height="311.0" layoutX="128.0" layoutY="92.0" opacity="0.2" stroke="BLACK" strokeType="INSIDE" width="499.0" />
+      <Text fill="WHITE" layoutX="186.0" layoutY="77.0" stroke="#2f2f2f" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" text="ADD NEW USER" wrappingWidth="499.0">
+         <font>
+            <Font name="Bodoni MT" size="52.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtUserName" layoutX="301.0" layoutY="211.0" prefHeight="36.0" prefWidth="269.0" promptText="Username" styleClass="addAccount" stylesheets="@../CSS/login.css">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></TextField>
+      <TextField fx:id="txtPassword" layoutX="179.0" layoutY="284.0" prefHeight="36.0" prefWidth="269.0" promptText="Password" styleClass="addAccount" stylesheets="@../CSS/Dashboard.css">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></TextField>
+      <Button fx:id="btnSave" layoutX="284.0" layoutY="430.0" mnemonicParsing="false" onAction="#btnClickOnAction" prefHeight="46.0" prefWidth="152.0" style="-fx-background-color: green;" styleClass="jbutton" stylesheets="@../CSS/login.css" text="SAVE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="300.0" layoutY="139.0" prefHeight="26.0" prefWidth="54.0" text="User ID: " textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUserId" layoutX="354.0" layoutY="143.0" prefHeight="18.0" prefWidth="46.0" textFill="WHITE" />
+   </children>
+</AnchorPane>

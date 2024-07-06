@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="725.0" prefWidth="725.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.employeeFormController">
+    <children>
+        <TextField fx:id="txtEmployeeId" layoutX="62.0" layoutY="200.0" onAction="#txtEmployeeOnAction" prefHeight="44.0" prefWidth="271.0" promptText="id">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtContactNo" layoutX="64.0" layoutY="307.0" prefHeight="44.0" prefWidth="271.0" promptText="07**********">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtName" layoutX="404.0" layoutY="198.0" prefHeight="44.0" prefWidth="271.0" promptText="name">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtFieldId" layoutX="62.0" layoutY="391.0" prefHeight="44.0" prefWidth="271.0" promptText="id">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TableView fx:id="tblEmployee" layoutX="14.0" layoutY="487.0" prefHeight="225.0" prefWidth="700.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="137.60006308555603" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="85.5999755859375" text="NAME" />
+                <TableColumn fx:id="colContact" prefWidth="152.00001525878906" text="CONTACT NO" />
+                <TableColumn fx:id="colStatus" prefWidth="175.20001220703125" text="STATUS" />
+            <TableColumn fx:id="colFieldId" prefWidth="141.59991455078125" text="FIELD ID" />
+            </columns>
+        </TableView>
+        <Text fill="WHITE" layoutX="62.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLOYEE ID:-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="65.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTACT NO :-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="408.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME:-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="64.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FIELD ID:-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="167.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLOYEE MANAGEMENT">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Text>
+      <JFXButton layoutX="353.0" layoutY="412.0" onAction="#btnSaveOnAction" style="-fx-background-color: white;" text="SAVE" textFill="#1f4369">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="464.0" layoutY="413.0" onAction="#btnUpdateOnAction" style="-fx-background-color: white;" text="UPDATE" textFill="#ea7d3a">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="602.0" layoutY="413.0" onAction="#btnDeleteOnAction" style="-fx-background-color: white;" text="DELETE" textFill="#e12c26">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtStatus" layoutX="404.0" layoutY="307.0" prefHeight="44.0" prefWidth="271.0" promptText="temp /">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Text fill="WHITE" layoutX="403.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STATUS:-">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootNode" prefHeight="620.0" prefWidth="876.0" scaleShape="false" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.loginFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="524.0" layoutX="63.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="751.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#10e7e7" height="344.0" layoutX="138.9" layoutY="123.7" opacity="0.12" stroke="#f7f7f7" strokeDashOffset="200.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="200.0" width="559.0" AnchorPane.bottomAnchor="205.0" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="123.0" />
+      <TextField fx:id="txtUserName" layoutX="327.0" layoutY="240.0" prefHeight="36.0" prefWidth="222.0" promptText="user name" style="-fx-background-color: white; -fx-background-radius: 50; -fx-border-color: black; -fx-border-style: solid; -fx-border-radius: 20;" />
+      <PasswordField fx:id="txtPassword" layoutX="327.0" layoutY="290.0" onAction="#txtPasswordOnAction" prefHeight="36.0" prefWidth="222.0" promptText="password" style="-fx-background-color: white; -fx-background-radius: 50; -fx-border-radius: 20; -fx-border-color: black;" />
+      <JFXButton buttonType="RAISED" cache="true" layoutX="394.0" layoutY="370.0" onAction="#btnLoginOnAction" prefHeight="42.0" prefWidth="106.0" ripplerFill="BLACK" style="-fx-background-color: white; -fx-background-radius: 50; -fx-border-color: black; -fx-border-radius: 50;" text="LOGIN" textAlignment="JUSTIFY">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Agency FB Bold" size="15.0" />
+         </font></JFXButton>
+      <Text fill="WHITE" layoutX="167.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login To " wrappingWidth="91.85076904296875">
+         <font>
+            <Font name="Yu Gothic Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="226.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="YouR" wrappingWidth="113.76708984375">
+         <font>
+            <Font name="Vivaldi Italic" size="29.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="245.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account .......">
+         <font>
+            <Font name="Tempus Sans ITC" size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtRegister" fill="#fcfcfc" layoutX="155.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new account " underline="true">
+         <font>
+            <Font name="Tw Cen MT" size="11.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

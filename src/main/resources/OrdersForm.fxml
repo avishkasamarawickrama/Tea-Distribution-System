@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="725.0" prefWidth="725.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.ordersFormController">
+    <children>
+        <TextField fx:id="txtPaymentid" layoutX="72.0" layoutY="266.0" onAction="#txtEmployeeOnAction" prefHeight="44.0" prefWidth="271.0" promptText="id">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtDate" layoutX="72.0" layoutY="351.0" prefHeight="44.0" prefWidth="271.0" promptText="id">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="txtCustomerid" layoutX="404.0" layoutY="265.0" prefHeight="44.0" prefWidth="271.0" promptText="id">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TableView fx:id="tblOrders" layoutX="14.0" layoutY="487.0" prefHeight="225.0" prefWidth="700.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="75.99999713897705" text="ID" />
+                <TableColumn fx:id="colStatus" prefWidth="106.39999389648438" text="STATUS" />
+                <TableColumn fx:id="colPayId" prefWidth="130.3999786376953" text="PAYMENT ID" />
+            <TableColumn fx:id="colCusId" prefWidth="133.5999755859375" text="CUSTOMER ID" />
+            <TableColumn fx:id="colCategoryId" prefWidth="124.7999267578125" text="CATEGORYID" />
+            <TableColumn fx:id="colDate" prefWidth="133.5999755859375" text="DATE" />
+            </columns>
+        </TableView>
+        <Text fill="WHITE" layoutX="72.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAYMENT ID:-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="73.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATE:-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="408.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CUSTOMER ID:-">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="150.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ORDERS MANAGEMENT">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Text>
+      <JFXButton layoutX="353.0" layoutY="412.0" onAction="#btnSaveOnAction" style="-fx-background-color: white;" text="SAVE" textFill="#1f4369">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="464.0" layoutY="413.0" onAction="#btnUpdateOnAction" style="-fx-background-color: white;" text="UPDATE" textFill="#ea7d3a">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="602.0" layoutY="413.0" onAction="#btnDeleteOnAction" style="-fx-background-color: white;" text="DELETE" textFill="#e12c26">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtOrderId" layoutX="70.0" layoutY="183.0" onAction="#txtOrderOnAction" prefHeight="44.0" prefWidth="271.0" promptText="id">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Text fill="WHITE" layoutX="70.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ORDERS ID:- ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtStatus" layoutX="404.0" layoutY="351.0" prefHeight="44.0" prefWidth="271.0" promptText="placed or no">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Text fill="WHITE" layoutX="405.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STATUS:-">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCategoryID" layoutX="405.0" layoutY="183.0" onAction="#txtEmployeeOnAction" prefHeight="44.0" prefWidth="271.0" promptText="id">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Text fill="WHITE" layoutX="403.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CATEGORY ID :-">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>
