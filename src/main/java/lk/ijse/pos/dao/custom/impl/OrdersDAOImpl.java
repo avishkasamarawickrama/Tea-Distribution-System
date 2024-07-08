@@ -13,7 +13,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         ArrayList<Orders> allOrders = new ArrayList<>();
         ResultSet rst = SQLUtil.execute("SELECT * FROM orders");
         while (rst.next()) {
-            Orders orders = new Orders(rst.getString("order_id"), rst.getDate("date"));
+            Orders orders = new Orders(rst.getString("order_id"), rst.getDate("date").toLocalDate(),rst.getString("customer_id"));
             allOrders.add(orders);
         }
         return allOrders;
@@ -58,7 +58,7 @@ public class OrdersDAOImpl implements OrdersDAO {
     public Orders search(String order_id) throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM orders WHERE order_id=?", order_id + "");
         rst.next();
-        return new Orders(order_id + "", rst.getDate("date"));
+        return new Orders(order_id + "", rst.getDate("date").toLocalDate(),rst.getString("harvest_no"));
     }
 
 }

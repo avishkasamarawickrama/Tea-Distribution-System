@@ -2,6 +2,7 @@ package lk.ijse.pos.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 public class OrdersDTO implements Serializable {
 
@@ -9,7 +10,8 @@ public class OrdersDTO implements Serializable {
     private LocalDate date;
     private String customer_id ;
 
-    public OrdersDTO(){}
+    List<OrderDetailDTO> orderDetail;
+    public OrdersDTO(String orderId, LocalDate orderDate, String customerId, List<OrderDetailDTO> orderDetails){}
 
     public OrdersDTO(String order_id, LocalDate date, String customer_id){
         this.order_id=order_id;
@@ -17,6 +19,9 @@ public class OrdersDTO implements Serializable {
         this.customer_id=customer_id;
     }
 
+    public List<OrderDetailDTO> getOrderDetail() {
+        return orderDetail;
+    }
     public String getOrder_id() {
         return order_id;
     }

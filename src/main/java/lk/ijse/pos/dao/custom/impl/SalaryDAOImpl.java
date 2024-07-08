@@ -13,7 +13,7 @@ public class SalaryDAOImpl implements SalaryDAO {
         ArrayList<salary> allSalary = new ArrayList<>();
         ResultSet rst = SQLUtil.execute("SELECT * FROM salary");
         while (rst.next()) {
-            salary salary = new salary(rst.getString("no"), rst.getBigDecimal("amount"), rst.getDate("date"));
+            salary salary = new salary(rst.getString("no"), rst.getBigDecimal("amount"), rst.getDate("date").toLocalDate(),rst.getString("employee_id"));
             allSalary.add(salary);
         }
         return allSalary;
@@ -58,7 +58,7 @@ public class SalaryDAOImpl implements SalaryDAO {
     public salary search(String no) throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM salary WHERE no=?", no + "");
         rst.next();
-        return new salary(no + "", rst.getBigDecimal("amount"), rst.getDate("date"));
+        return new salary(no + "", rst.getBigDecimal("amount"), rst.getDate("date").toLocalDate(),rst.getString("employee_id"));
     }
 
 }

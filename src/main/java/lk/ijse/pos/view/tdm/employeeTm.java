@@ -62,12 +62,12 @@ public class employeeTm implements Comparable<employeeTm> {
         this.field_id = field_id;
     }
 
-    public employeeTm(String id, String name , int contact, String status, String Uid, String Fid){
+    public employeeTm(String id, String name , int contact, String status, String Fid){
         this.employee_id=id;
         this.name=name;
         this.contact=contact;
         this.status=status;
-        this.id=Uid;
+
         this.field_id=Fid;
     }
    public employeeTm(String id, String name , int contact, String status){

@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.InventoryBO;
 import lk.ijse.pos.dto.fieldsDTO;
 import lk.ijse.pos.dto.inventoryDTO;
@@ -75,6 +76,7 @@ public class inventoryFormController {
         tblInventory.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("category_name"));
         tblInventory.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("qty"));
         tblInventory.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        tblInventory.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("harvest_no"));
 
 
 
@@ -90,12 +92,14 @@ public class inventoryFormController {
                 txtCategoryName.setText(newValue.getCategory_name());
                 txtQuantity.setText(String.valueOf(newValue.getQtyOnHand()));
                 txtUnitPrice.setText(String.valueOf(newValue.getUnitPrice()));
+                txtHarvestid.setText(String.valueOf(newValue.getHarvest_no()));
 
 
                 txtCategoryid.setDisable(false);
                 txtCategoryName.setDisable(false);
                 txtQuantity.setDisable(false);
                 txtUnitPrice.setDisable(false);
+                txtHarvestid.setDisable(false);
 
             }
         });
@@ -110,7 +114,7 @@ public class inventoryFormController {
 
             ArrayList<inventoryDTO> allIInventory = inventoryBO.getAllInventory();
             for (inventoryDTO i : allIInventory) {
-                tblInventory.getItems().add(new inventoryTm(i.getCategory_id(), i.getCategory_name(), i.getQtyOnHand(),i.getUnitPrice()));
+                tblInventory.getItems().add(new inventoryTm(i.getCategory_id(), i.getCategory_name(), i.getQtyOnHand(),i.getUnitPrice(),i.getHarvest_no()));
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -124,10 +128,12 @@ public class inventoryFormController {
         txtCategoryName.clear();
         txtQuantity.clear();
         txtUnitPrice.clear();
+        txtHarvestid.clear();
         txtCategoryid.setDisable(true);
         txtCategoryName.setDisable(true);
         txtQuantity.setDisable(true);
         txtUnitPrice.setDisable(true);
+        txtHarvestid.setDisable(true);
         txtCategoryid.setEditable(false);
         btnSave.setDisable(true);
         btnDelete.setDisable(true);
@@ -139,6 +145,7 @@ public class inventoryFormController {
         txtCategoryName.setDisable(false);
         txtQuantity.setDisable(false);
         txtUnitPrice.setDisable(false);
+        txtHarvestid.setDisable(false);
         txtCategoryid.clear();
         txtCategoryid.setText(generateNewId());
         txtCategoryName.clear();
@@ -146,6 +153,8 @@ public class inventoryFormController {
         txtQuantity.requestFocus();
         txtUnitPrice.clear();
         txtUnitPrice.requestFocus();
+        txtHarvestid.clear();
+        txtHarvestid.requestFocus();
         btnSave.setDisable(false);
         btnSave.setText("Save");
         tblInventory.getSelectionModel().clearSelection();
@@ -177,6 +186,7 @@ public class inventoryFormController {
         String category_name = txtCategoryName.getText();
         int qtyOnHand = Integer.parseInt(txtQuantity.getText());
         BigDecimal unitPrice =new BigDecimal(txtUnitPrice.getText());
+        String harvest_no = txtHarvestid.getText();
 
         if (!txtQuantity.getText().matches("[A-Za-z ]+")) {
             new Alert(Alert.AlertType.ERROR, "Invalid name").show();
@@ -198,9 +208,9 @@ public class inventoryFormController {
                     new Alert(Alert.AlertType.ERROR, category_id + " already exists").show();
                 }
 
-                inventoryBO.addInventory(new inventoryDTO(category_id, category_name, qtyOnHand,unitPrice));
+                inventoryBO.addInventory(new inventoryDTO(category_id, category_name, qtyOnHand,unitPrice,harvest_no));
 
-                tblInventory.getItems().add(new inventoryTm(category_id, category_name, qtyOnHand,unitPrice));
+                tblInventory.getItems().add(new inventoryTm(category_id, category_name, qtyOnHand,unitPrice,harvest_no));
 
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -214,12 +224,13 @@ public class inventoryFormController {
                     new Alert(Alert.AlertType.ERROR, "There is no such item associated with the id " + category_id).show();
                 }
 
-                inventoryBO.updateInventory(new inventoryDTO(category_id, category_name, qty,unitPrice));
+                inventoryBO.updateInventory(new inventoryDTO(category_id, category_name, qtyOnHand,unitPrice,harvest_no));
 
                 inventoryTm selectedInventory = tblInventory.getSelectionModel().getSelectedItem();
                 selectedInventory.setCategory_name(category_name);
-                selectedInventory.setQtyOnHand(qty);
+                selectedInventory.setQtyOnHand(qtyOnHand);
                 selectedInventory.setUnitPrice(unitPrice);
+                selectedInventory.setHarvest_no(harvest_no);
                 tblInventory.refresh();
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

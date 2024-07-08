@@ -12,9 +12,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.pos.bo.BOFactory;
+import lk.ijse.pos.bo.custom.CustomerBO;
 import lk.ijse.pos.bo.custom.EmployeeBO;
 import lk.ijse.pos.dto.employeeDTO;
 import lk.ijse.pos.view.tdm.employeeTm;
+import lk.ijse.pos.view.tdm.fieldsTm;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -44,6 +47,10 @@ public class employeeFormController {
 
     @FXML
     private TableView<employeeTm> tblEmployee;
+    @FXML
+    private TableView<employeeTm> tblField;
+    @FXML
+    private TableView<employeeTm> tblUser;
 
     @FXML
     private TextField txtContactNo;
@@ -64,7 +71,7 @@ public class employeeFormController {
     public JFXButton btnSave;
     public JFXButton btnAddNewEmployee;
 
-    EmployeeBO employeeBO=(EmployeeBO) BOFactory().getBoFactory().getBOFactory.BOTypes.EMPLOYEE;
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.EMPLOYEE);
 
     public void initialize(){
 
@@ -72,6 +79,7 @@ public class employeeFormController {
         tblEmployee.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
         tblEmployee.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("contact"));
         tblEmployee.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("status"));
+        tblEmployee.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("field_id"));
 
         initUI();
 
@@ -85,11 +93,13 @@ public class employeeFormController {
                 txtName.setText(newValue.getName());
                 txtContactNo.setText(String.valueOf(newValue.getContact()));
                 txtStatus.setText(newValue.getStatus() + "");
+                txtFieldId.setText(newValue.getField_id() + "");
 
                 txtEmployeeId.setDisable(false);
                 txtName.setDisable(false);
                 txtContactNo.setDisable(false);
                 txtStatus .setDisable(false);
+                txtFieldId .setDisable(false);
             }
         });
 
@@ -105,7 +115,7 @@ public class employeeFormController {
             ArrayList<employeeDTO> allEmployee = employeeBO.getAllEmployee();
 
             for (employeeDTO c : allEmployee) {
-                tblEmployee.getItems().add(new employeeTm(c.getEmployee_id(), c.getName(), c.getContact(), c.getStatus()));
+                tblEmployee.getItems().add(new employeeTm(c.getEmployee_id(), c.getName(), c.getContact(), c.getStatus(),c.getField_id()));
 
             }
         } catch (SQLException e) {
@@ -122,11 +132,13 @@ public class employeeFormController {
             txtName.setDisable(false);
             txtContactNo.setDisable(false);
             txtStatus.setDisable(false);
+            txtFieldId.setDisable(false);
             txtEmployeeId.clear();
             txtEmployeeId.setText(generateNewId());
             txtName.clear();
             txtContactNo.clear();
             txtStatus.clear();
+            txtFieldId.clear();
             txtContactNo.requestFocus();
             btnSave.setDisable(false);
             btnSave.setText("Save");
@@ -164,10 +176,12 @@ public class employeeFormController {
         txtName.clear();
         txtContactNo.clear();
         txtStatus.clear();
+        txtFieldId.clear();
         txtEmployeeId.setDisable(true);
         txtName.setDisable(true);
         txtContactNo.setDisable(true);
         txtStatus.setDisable(true);
+        txtFieldId.setDisable(true);
         txtEmployeeId.setDisable(false);
         btnSave.setDisable(true);
         btnDelete.setDisable(true);
@@ -179,6 +193,7 @@ public class employeeFormController {
             String name = txtName.getText();
             int contact = Integer.parseInt(txtContactNo.getText());
             String status = txtStatus.getText();
+            String field_id = txtFieldId.getText();
 
             if (!txtName.getText().matches("[A-Za-z ]+")) {
                 new Alert(Alert.AlertType.ERROR, "Invalid name").show();
@@ -203,9 +218,9 @@ public class employeeFormController {
                     }
 
                     //Add Customer
-                    employeeBO.addEmployee(new employeeDTO(employee_id, name, contact, status));
+                    employeeBO.addEmployee(new employeeDTO(employee_id, name, contact, status,field_id));
 
-                    tblEmployee.getItems().add(new employeeTm(employee_id, name, contact, status));
+                    tblEmployee.getItems().add(new employeeTm(employee_id, name, contact, status,field_id));
                 } catch (SQLException e) {
                     new Alert(Alert.AlertType.ERROR, "Failed to save the employee " + e.getMessage()).show();
                 } catch (ClassNotFoundException e) {
@@ -220,7 +235,7 @@ public class employeeFormController {
                     }
 
                     //Update employee
-                    employeeBO.updateEmployee(new employeeDTO(employee_id, name, contact, status));
+                    employeeBO.updateEmployee(new employeeDTO(employee_id, name, contact, status,field_id));
 
                 } catch (SQLException e) {
                     new Alert(Alert.AlertType.ERROR, "Failed to update the customer " + employee_id + e.getMessage()).show();
@@ -232,6 +247,7 @@ public class employeeFormController {
                 selectedEmployee.setName(name);
                 selectedEmployee.setContact(contact);
                 selectedEmployee.setStatus(status);
+                selectedEmployee.setField_id(field_id);
                 tblEmployee.refresh();
             }
 

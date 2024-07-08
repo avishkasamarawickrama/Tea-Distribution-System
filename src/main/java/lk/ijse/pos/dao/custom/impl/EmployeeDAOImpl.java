@@ -17,7 +17,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         ArrayList<employee> allEmployee = new ArrayList<>();
         ResultSet rst = SQLUtil.execute("SELECT * FROM employee");
         while (rst.next()) {
-            employee employee = new employee(rst.getString("employee_id"), rst.getString("name"), rst.getInt("contact"),rst.getString("status"));
+            employee employee = new employee(rst.getString("employee_id"), rst.getString("name"), rst.getInt("contact"),rst.getString("status"),rst.getString("field_id"));
             allEmployee.add(employee);
         }
         return allEmployee;
@@ -62,7 +62,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     public employee search(String employee_id) throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM employee WHERE employee_id=?", employee_id + "");
         rst.next();
-        return new employee(employee_id + "", rst.getString("name"), rst.getInt("contact"),rst.getString("status"),rst.getString("id"),rst.getString("field_id"));
+        return new employee(employee_id + "", rst.getString("name"), rst.getInt("contact"),rst.getString("status"),rst.getString("field_id"));
     }
 
 }

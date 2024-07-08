@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.FieldBO;
 import lk.ijse.pos.dto.fieldsDTO;
 import lk.ijse.pos.view.tdm.fieldsTm;
@@ -180,7 +181,7 @@ public class fieldsFormController {
                     new Alert(Alert.AlertType.ERROR, field_id + " already exists").show();
                 }
 
-                fieldBO.saveField(new fieldsDTO(field_id, name, address));
+                fieldBO.addField(new fieldsDTO(field_id, name, address));
 
                 tblFields.getItems().add(new fieldsTm(field_id, name, address));
 

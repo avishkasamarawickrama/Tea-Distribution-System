@@ -12,7 +12,7 @@ public class employeeDTO implements Serializable {
     private String id;
     private String field_id;
 
-    public employeeDTO(){
+    public employeeDTO(String employee_id, String name, int contact, String status, String field_id){
 
     }
 

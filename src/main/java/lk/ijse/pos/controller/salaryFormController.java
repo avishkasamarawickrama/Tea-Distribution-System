@@ -11,6 +11,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.pos.bo.BOFactory;
+import lk.ijse.pos.bo.custom.CustomerBO;
 import lk.ijse.pos.bo.custom.SalaryBO;
 import lk.ijse.pos.dto.employeeDTO;
 import lk.ijse.pos.dto.salaryDTO;
@@ -62,13 +64,14 @@ public class salaryFormController {
     public JFXButton btnAddNewSalary;
 
 
-    SalaryBO salaryBO=(SalaryBO) BOFactory().getBoFactory().getBOFactory.BOTypes.SALARY;
+    SalaryBO salaryBO  = (SalaryBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.SALARY);
 
     public void initialize(){
 
         tblSalary.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("no"));
         tblSalary.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("amount"));
         tblSalary.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("date"));
+        tblSalary.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("employee_id"));
 
 
         initUI();
@@ -82,11 +85,13 @@ public class salaryFormController {
                 txtSalaryno.setText(newValue.getEmployee_id());
                 txtAmount.setText(String.valueOf(newValue.getAmount()));
                 txtDate.setText(String.valueOf(newValue.getDate()));
+                txtEmployeeId.setText(String.valueOf(newValue.getEmployee_id()));
 
 
                 txtSalaryno.setDisable(false);
                 txtAmount.setDisable(false);
                 txtDate.setDisable(false);
+                txtEmployeeId.setDisable(false);
             }
         });
 
@@ -102,7 +107,7 @@ public class salaryFormController {
             ArrayList<salaryDTO> allSalary = salaryBO.getAllSalary();
 
             for (salaryDTO s : allSalary) {
-                tblSalary.getItems().add(new salaryTm(s.getNo(), s.getAmount(), s.getDate()));
+                tblSalary.getItems().add(new salaryTm(s.getNo(), s.getAmount(), s.getDate(),s.getEmployee_id()));
 
             }
         } catch (SQLException e) {
@@ -118,10 +123,12 @@ public class salaryFormController {
         txtSalaryno.setDisable(false);
         txtAmount.setDisable(false);
         txtDate.setDisable(false);
+        txtEmployeeId.setDisable(false);
         txtSalaryno.clear();
         txtSalaryno.setText(generateNewId());
         txtAmount.clear();
         txtDate.clear();
+        txtEmployeeId.clear();
         txtAmount.requestFocus();
         btnSave.setDisable(false);
         btnSave.setText("Save");
@@ -158,9 +165,11 @@ public class salaryFormController {
         txtSalaryno.clear();
         txtAmount.clear();
         txtDate.clear();
+        txtEmployeeId.clear();
         txtSalaryno.setDisable(true);
         txtAmount.setDisable(true);
         txtDate.setDisable(true);
+        txtEmployeeId.setDisable(true);
         txtSalaryno.setEditable(false);
         btnSave.setDisable(true);
         btnDelete.setDisable(true);

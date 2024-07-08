@@ -10,7 +10,7 @@ public class employee  {
     private String id;
     private String field_id;
 
-    public employee(){
+    public employee(String employeeId, String name, int contact, String status){
 
     }
 
@@ -62,12 +62,11 @@ public class employee  {
         this.field_id = field_id;
     }
 
-    public employee(String id, String name , int contact, String status, String Uid, String Fid){
+    public employee(String id, String name , int contact, String status,String Fid){
         this.employee_id=id;
         this.name=name;
         this.contact=contact;
         this.status=status;
-        this.id=Uid;
         this.field_id=Fid;
     }
 

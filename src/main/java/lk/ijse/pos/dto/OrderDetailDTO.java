@@ -15,7 +15,10 @@ public class OrderDetailDTO  implements Serializable {
 
         public OrderDetailDTO(){}
 
-    public OrderDetailDTO(String category_id, String category_name, int qty, BigDecimal unitPrice, BigDecimal total){
+
+
+    public OrderDetailDTO(String order_id, String category_id, String category_name, int qty, BigDecimal unitPrice, BigDecimal total){
+            this.order_id= order_id;
             this.category_id=category_id;
             this.category_name=category_name;
             this.qty= qty;
@@ -23,11 +26,12 @@ public class OrderDetailDTO  implements Serializable {
             this.total=total;
 
     }
-    public OrderDetailDTO(String order_id,String category_id ,int qty,BigDecimal unitPrice){
+    public OrderDetailDTO(String order_id,String category_id ,int qty,BigDecimal unitPrice, BigDecimal total){
             this.order_id= order_id;
             this.category_id= category_id;
             this.qty=qty;
             this.unitPrice=unitPrice;
+            this.total=total;
     }
 
     public String getCategory_id() {
@@ -68,6 +72,14 @@ public class OrderDetailDTO  implements Serializable {
 
     public void setTotal(BigDecimal total) {
         this.total = total;
+    }
+
+    public String getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(String order_id) {
+        this.order_id = order_id;
     }
 
     @Override

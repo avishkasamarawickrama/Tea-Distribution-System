@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.CustomerBO;
 import lk.ijse.pos.dto.CustomerDTO;
 import lk.ijse.pos.view.tdm.CustomerTm;
@@ -51,7 +52,7 @@ public class customerFormController {
     public JFXButton btnSave;
     public JFXButton btnAddNewCustomer;
 
-    CustomerBO customerBO = (CustomerBO) BOFactory.getBoFactory().getBOFactory.BOTypes.CUSTOMER;
+    CustomerBO customerBO  = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CUSTOMER);
 
     public void initialize() {
 

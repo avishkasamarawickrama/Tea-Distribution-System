@@ -64,13 +64,12 @@ public class employeeDTO implements Serializable {
         this.field_id = field_id;
     }
 
-    public employeeDTO(String id, String name , int contact, String status, String Uid, String Fid){
+    public employeeDTO(String id, String name , int contact, String status,  String field_id){
         this.employee_id=id;
         this.name=name;
         this.contact=contact;
         this.status=status;
-        this.id=Uid;
-        this.field_id=Fid;
+        this.field_id=field_id;
     }
 
 
@@ -81,7 +80,6 @@ public class employeeDTO implements Serializable {
                 ", name='" + name + '\'' +
                 ", contact='" + contact + '\'' +
                 ", status='" + status + '\'' +
-                ", id='" + id + '\'' +
                 ", field_id='" + field_id + '\'' +
                 '}';
     }

@@ -17,7 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.PlaceOrderBO;
-import lk.ijse.pos.bo.custom.placeOrderBO;
+
 import lk.ijse.pos.dto.CustomerDTO;
 import lk.ijse.pos.dto.inventoryDTO;
 import lk.ijse.pos.dto.OrdersDTO;
@@ -283,7 +283,7 @@ public class PlaceOrderFormController {
     public void btnPlaceOrder_OnAction(ActionEvent actionEvent) {
         try {
             boolean b = saveOrder(orderId, LocalDate.now(), cmbCustomerId.getValue(),
-                    tblOrderDetails.getItems().stream().map(tm -> new OrderDetailDTO(orderId, tm.getCategory_id(), tm.getQty(), tm.getUnitPrice())).collect(Collectors.toList()));
+                    tblOrderDetails.getItems().stream().map(tm -> new OrderDetailDTO(orderId, tm.getCategory_id(), tm.getQty(), tm.getUnitPrice(),tm.getTotal())).collect(Collectors.toList()));
 
             if (b) {
                 new Alert(Alert.AlertType.INFORMATION, "Order has been placed successfully").show();

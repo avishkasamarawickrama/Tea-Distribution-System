@@ -11,6 +11,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.pos.bo.BOFactory;
+import lk.ijse.pos.bo.custom.CustomerBO;
 import lk.ijse.pos.bo.custom.HarvestBO;
 import lk.ijse.pos.dto.HarvestDTO;
 import lk.ijse.pos.dto.employeeDTO;
@@ -58,13 +60,14 @@ public class harvestFormController {
     public JFXButton btnSave;
     public JFXButton btnAddNewHarvest;
 
-    HarvestBO harvestBO=(HarvestBO) BOFactory().getBoFactory().getBOFactory.BOTypes.HARVEST);
+    HarvestBO harvestBO  = (HarvestBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.HARVEST);
 
     public void initialize(){
 
         tblHarvest.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("harvest_no"));
         tblHarvest.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("qty"));
         tblHarvest.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("date"));
+        tblHarvest.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("field_id"));
 
 
         initUI();
@@ -78,11 +81,13 @@ public class harvestFormController {
                 txtHarvestId.setText(newValue.getHarvest_no());
                 txtQuantity.setText(String.valueOf(newValue.getQty()));
                 txtDate.setText(String.valueOf(newValue.getDate()));
+                txtFieldId.setText(String.valueOf(newValue.getField_id()));
 
 
                 txtHarvestId.setDisable(false);
                 txtQuantity.setDisable(false);
                 txtDate.setDisable(false);
+                txtFieldId.setDisable(false);
 
             }
         });
@@ -99,7 +104,7 @@ public class harvestFormController {
             ArrayList<HarvestDTO> allHarvest = harvestBO.getAllHarvest();
 
             for (HarvestDTO h : allHarvest) {
-                tblHarvest.getItems().add(new HarvestTm(h.getHarvest_no(), h.getQty(), h.getDate()));
+                tblHarvest.getItems().add(new HarvestTm(h.getHarvest_no(), h.getQty(), h.getDate(),h.getField_id()));
 
             }
         } catch (SQLException e) {
@@ -115,10 +120,12 @@ public class harvestFormController {
         txtHarvestId.setDisable(false);
         txtQuantity.setDisable(false);
         txtDate.setDisable(false);
+        txtFieldId.setDisable(false);
         txtHarvestId.clear();
         txtHarvestId.setText(generateNewId());
         txtQuantity.clear();
         txtDate.clear();
+        txtFieldId.clear();
         txtDate.requestFocus();
         btnSave.setDisable(false);
         btnSave.setText("Save");
@@ -155,9 +162,11 @@ public class harvestFormController {
         txtHarvestId.clear();
         txtQuantity.clear();
         txtDate.clear();
+        txtFieldId.clear();
         txtHarvestId.setDisable(true);
         txtQuantity.setDisable(true);
         txtDate.setDisable(true);
+        txtFieldId.setDisable(true);
         txtHarvestId.setDisable(false);
         btnSave.setDisable(true);
         btnDelete.setDisable(true);
@@ -168,7 +177,7 @@ public class harvestFormController {
         String harvest_no = txtHarvestId.getText();
         int qty = Integer.parseInt(txtQuantity.getText());
         LocalDate date = LocalDate.parse(txtDate.getText());
-
+        String field_id = txtFieldId.getId();
 
         if (!txtQuantity.getText().matches("^\\d+$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid qty on hand").show();
@@ -188,9 +197,9 @@ public class harvestFormController {
                     new Alert(Alert.AlertType.ERROR, harvest_no + " already exists").show();
                 }
 
-                harvestBO.saveHarvest(new HarvestDTO(harvest_no, qty, date));
+                harvestBO.addHarvest(new HarvestDTO(harvest_no, qty, date,field_id));
 
-                tblHarvest.getItems().add(new HarvestTm(harvest_no, qty, date));
+                tblHarvest.getItems().add(new HarvestTm(harvest_no, qty, date,field_id));
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, "Failed to save the harvest " + e.getMessage()).show();
             } catch (ClassNotFoundException e) {
@@ -214,6 +223,7 @@ public class harvestFormController {
             HarvestTm selectedHarvest = tblHarvest.getSelectionModel().getSelectedItem();
             selectedHarvest.setQty(qty);
             selectedHarvest.setDate(date);
+            selectedHarvest.setField_id(field_id);
             tblHarvest.refresh();
         }
 

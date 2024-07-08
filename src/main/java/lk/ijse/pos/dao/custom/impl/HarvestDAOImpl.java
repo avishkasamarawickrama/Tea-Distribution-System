@@ -13,7 +13,7 @@ public class HarvestDAOImpl implements HarvestDAO {
         ArrayList<Harvest> allHarvest = new ArrayList<>();
         ResultSet rst = SQLUtil.execute("SELECT * FROM harvest");
         while (rst.next()) {
-            Harvest harvest = new Harvest(rst.getString("harvest_no"), rst.getInt("qty"), rst.getDate("date"));
+            Harvest harvest = new Harvest(rst.getString("harvest_no"), rst.getInt("qty"), rst.getDate("date").toLocalDate(),rst.getString("field_id"));
             allHarvest.add(harvest);
         }
         return allHarvest;
@@ -58,7 +58,7 @@ public class HarvestDAOImpl implements HarvestDAO {
     public Harvest search(String harvest_no) throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM harvest WHERE harvest_no=?", harvest_no + "");
         rst.next();
-        return new Harvest(harvest_no + "", rst.getInt("qty"), rst.getDate("date"));
+        return new Harvest(harvest_no + "", rst.getInt("qty"), rst.getDate("date").toLocalDate(),rst.getString("field_id"));
     }
 
 }

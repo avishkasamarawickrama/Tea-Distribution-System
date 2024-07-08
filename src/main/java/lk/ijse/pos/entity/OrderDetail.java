@@ -15,7 +15,8 @@ public class OrderDetail  {
 
         public OrderDetail(){}
 
-    public OrderDetail(String category_id, String category_name, int qty, BigDecimal unitPrice, BigDecimal total){
+    public OrderDetail(String order_id,String category_id, String category_name, int qty, BigDecimal unitPrice, BigDecimal total){
+            this.order_id= order_id;
             this.category_id=category_id;
             this.category_name=category_name;
             this.qty= qty;

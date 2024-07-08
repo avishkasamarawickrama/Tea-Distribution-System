@@ -13,7 +13,7 @@ public class InventoryDAOImpl implements InventoryDAO {
         ArrayList<inventory> allInventory = new ArrayList<>();
         ResultSet rst = SQLUtil.execute("SELECT * FROM inventory");
         while (rst.next()) {
-            inventory inventory = new inventory(rst.getString("category_id"), rst.getString("category_name"), rst.getInt("qtyOnHand"),rst.getBigDecimal("unitPrice"));
+            inventory inventory = new inventory(rst.getString("category_id"), rst.getString("category_name"), rst.getInt("qtyOnHand"),rst.getBigDecimal("unitPrice"),rst.getString("harvest_no"));
             allInventory.add(inventory);
         }
         return allInventory;
@@ -58,7 +58,7 @@ public class InventoryDAOImpl implements InventoryDAO {
     public inventory search(String category_id) throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM inventory WHERE category_id=?", category_id + "");
         rst.next();
-        return new inventory(category_id + "", rst.getString("category_name"), rst.getInt("qtyOnHand"),rst.getBigDecimal("unitPrice"));
+        return new inventory(category_id + "", rst.getString("category_name"), rst.getInt("qtyOnHand"),rst.getBigDecimal("unitPrice"),rst.getString("harvest_no"));
     }
 
 }
