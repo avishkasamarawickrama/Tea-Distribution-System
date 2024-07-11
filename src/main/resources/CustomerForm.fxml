@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" prefHeight="725.0" prefWidth="725.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.customerFormController">
+<AnchorPane fx:id="root" prefHeight="725.0" prefWidth="725.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.customerFormController">
     <children>
         <TextField fx:id="txtCustomerId" layoutX="62.0" layoutY="200.0" onAction="#txtCustomerOnAction" prefHeight="44.0" prefWidth="271.0" promptText="id">
             <cursor>
@@ -31,8 +28,8 @@
             <columns>
                 <TableColumn fx:id="colId" prefWidth="137.60006308555603" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="149.59991455078125" text="NAME" />
-                <TableColumn fx:id="colContact" prefWidth="196.79995727539062" text="CONTACT NUMBER" />
-                <TableColumn fx:id="colEmail" prefWidth="212.79998779296875" text="EMAIL" />
+                <TableColumn fx:id="colEmail" prefWidth="196.79995727539062" text="EMAIL" />
+                <TableColumn fx:id="colContact" prefWidth="212.79998779296875" text="CONTACT" />
             </columns>
         </TableView>
         <Text fill="WHITE" layoutX="62.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CUSTOMER ID">

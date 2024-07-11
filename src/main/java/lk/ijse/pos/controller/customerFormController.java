@@ -15,6 +15,7 @@ import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.CustomerBO;
 import lk.ijse.pos.dto.CustomerDTO;
 import lk.ijse.pos.view.tdm.CustomerTm;
+import lk.ijse.pos.db.DBConnection;
 
 
 import java.sql.Connection;

@@ -4,7 +4,7 @@ package lk.ijse.pos.view.tdm;
 import java.math.BigDecimal;
 
 
-public class inventoryTm {
+public class inventoryTm  implements Comparable<inventoryTm>{
 
     private String category_id;
     private String category_name;
@@ -70,6 +70,10 @@ public class inventoryTm {
         this.harvest_no = harvest_no;
     }
 
+    @Override
+    public int compareTo(inventoryTm other) {
+        return this.category_id.compareTo(other.category_id);
+    }
     @Override
     public String toString() {
         return "inventoryTm{" +

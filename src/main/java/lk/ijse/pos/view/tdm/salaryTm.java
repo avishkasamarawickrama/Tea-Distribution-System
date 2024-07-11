@@ -3,7 +3,7 @@ package lk.ijse.pos.view.tdm;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class salaryTm {
+public class salaryTm implements Comparable<salaryTm> {
 
     private String no;
     private BigDecimal amount;
@@ -55,6 +55,11 @@ public class salaryTm {
 
     public void setEmployee_id(String employee_id) {
         this.employee_id = employee_id;
+    }
+
+    @Override
+    public int compareTo(salaryTm other) {
+        return this.no.compareTo(other.no);
     }
     @Override
     public String toString() {

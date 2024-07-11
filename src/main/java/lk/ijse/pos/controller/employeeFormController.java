@@ -281,7 +281,10 @@ public class employeeFormController {
         Collections.sort(tempEmployeeList);
         return tempEmployeeList.get(tempEmployeeList.size() - 1).getEmployee_id();
     }
+
+    public void txtEmployeeOnAction(ActionEvent actionEvent) {
     }
+}
    /* public void initialize() {
 
         setCellValueFactory();

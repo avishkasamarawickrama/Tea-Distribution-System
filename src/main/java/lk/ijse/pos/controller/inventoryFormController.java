@@ -51,6 +51,8 @@ public class inventoryFormController {
     @FXML
     private TextField txtCategoryName;
 
+    private TextField txtCategoryOnAction;
+
     @FXML
     private TextField txtCategoryid;
 
@@ -272,6 +274,9 @@ public class inventoryFormController {
         List<inventoryTm> tempInventoryList = new ArrayList<>(tblInventory.getItems());
         Collections.sort(tempInventoryList);
         return tempInventoryList.get(tempInventoryList.size() - 1).getCategory_id();
+    }
+
+    public void txtCategoryOnAction(ActionEvent actionEvent) {
     }
 
 }

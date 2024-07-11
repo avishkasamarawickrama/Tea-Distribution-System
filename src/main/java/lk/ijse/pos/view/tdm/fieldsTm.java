@@ -1,6 +1,6 @@
 package lk.ijse.pos.view.tdm;
 
-public class fieldsTm {
+public class fieldsTm implements Comparable<fieldsTm>{
 
     private String field_id;
     private String name;
@@ -35,6 +35,10 @@ public class fieldsTm {
     public void setAddress(String address) {this.address = address;
     }
 
+    @Override
+    public int compareTo(fieldsTm other) {
+        return this.field_id.compareTo(other.field_id);
+    }
     @Override
     public String toString(){
         return "fieldsTm{" +

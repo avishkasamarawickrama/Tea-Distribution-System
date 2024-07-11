@@ -16,7 +16,9 @@
    <children>
       <ImageView fitHeight="813.0" fitWidth="539.0" layoutX="-3.0" layoutY="-13.0">
          <image>
-            <Image url="@../icon/OIP%20(11).jpeg" />
+            <Image>
+               <url>@../icon/OIP%20(11).jpeg</url>
+            </Image>
          </image>
       </ImageView>
       <Rectangle arcHeight="80.0" arcWidth="80.0" height="598.0" layoutX="45.0" layoutY="136.0" opacity="0.72" stroke="BLACK" strokeType="INSIDE" width="316.0" />

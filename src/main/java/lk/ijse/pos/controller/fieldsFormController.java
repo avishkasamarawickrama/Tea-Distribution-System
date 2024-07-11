@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.FieldBO;
 import lk.ijse.pos.dto.fieldsDTO;
+import lk.ijse.pos.view.tdm.employeeTm;
 import lk.ijse.pos.view.tdm.fieldsTm;
 
 
@@ -245,5 +246,9 @@ public class fieldsFormController {
         return tempFieldList.get(tempFieldList.size() - 1).getField_id();
     }
 
+    public void txtFieldsOnAction(ActionEvent actionEvent) {
+    }
 }
+
+
 

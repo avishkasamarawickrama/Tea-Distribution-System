@@ -257,6 +257,9 @@ public class harvestFormController {
         Collections.sort(tempHarvestList);
         return tempHarvestList.get(tempHarvestList.size() - 1).getHarvest_no();
     }
+
+    public void txtHarvestOnAction(ActionEvent actionEvent) {
+    }
 }
   /*  @FXML
     void btnSaveOnAction(ActionEvent event) {

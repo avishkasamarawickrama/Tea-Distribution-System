@@ -1,7 +1,7 @@
 package lk.ijse.pos.view.tdm;
 import java.time.LocalDate;
 
-public class HarvestTm {
+public class HarvestTm implements Comparable<HarvestTm> {
 
     private String harvest_no;
     private int qty;
@@ -49,6 +49,10 @@ public class HarvestTm {
 
     }
 
+    @Override
+    public int compareTo(HarvestTm other) {
+        return this.harvest_no.compareTo(other.harvest_no);
+    }
     @Override
     public String toString() {
         return "HarvestTm{" +

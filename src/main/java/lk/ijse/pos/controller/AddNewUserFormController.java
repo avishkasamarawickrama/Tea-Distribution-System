@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import lk.ijse.pos.db.DBConnection;
 
 
 public class AddNewUserFormController {
@@ -40,7 +41,12 @@ public class AddNewUserFormController {
         String sql = "INSERT INTO user VALUES(?,?,?)";
 
         try {
-            Connection connection = DBConnection.getInstance().getConnection();
+            Connection connection = null;
+            try {
+                connection = DBConnection.getDbConnection().getConnection();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
             PreparedStatement pstm = connection.prepareStatement(sql);
 
             pstm.setInt(1, Integer.parseInt(id));
